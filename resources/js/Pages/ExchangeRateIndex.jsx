@@ -14,7 +14,7 @@ export default function ExchangeRateIndex({ exchange_rates }) {
 
     return (
         <>
-            <SearchExchangeRate /> {/* Render the ChildComponent here */}
+            <SearchExchangeRate exchange_rates={exchange_rates} /> {/* Render the ChildComponent here */}
 
             <hr/>
             <div className="row">

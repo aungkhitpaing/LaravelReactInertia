@@ -12,7 +12,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -26,7 +26,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -40,7 +40,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -54,7 +54,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -68,7 +68,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -82,7 +82,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -96,7 +96,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -110,7 +110,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -124,7 +124,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
@@ -138,7 +138,7 @@
                     "note" => null,
                     "createdAt" => "2023-09-14T07:14:37.000+00:00",
                     "createdBy" => "Portal Owner",
-                    "checkedAt" => "2023-09-14T07:14:37.000+00:00",
+                    "checkedAt" => \Illuminate\Support\Carbon::parse("2023-09-14T07:14:37.000+00:00")->format('Y/m/d, H:i:s') ,
                     "checkedBy" => "Portal Owner",
                     "updatedAt" => "2023-09-14T07:14:37.000+00:00",
                     "updatedBy" => "Portal Owner"
