@@ -22,11 +22,11 @@ class ExchangeRateController extends Controller
         /**
          * Here we can do some logic with the request data
          */
-        //$filters = array_filter($request->validated(), function($v) {
-        //  return $v !== null;
-        //});
+        $inputs = array_filter($request->validated(), function($v) {
+          return $v !== null;
+        });
 
-        $result = $this->exchangeRateService->getExchangeRateList();
+        $result = $this->exchangeRateService->getExchangeRateList($inputs);
 
         return Inertia::render('ExchangeRateIndex', [
             'exchange_rates' => $result

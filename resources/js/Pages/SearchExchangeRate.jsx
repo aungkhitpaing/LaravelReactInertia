@@ -6,29 +6,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function SearchExchangeRate({exchange_rates}) {
 
     const { errors } = usePage().props;
-    const [searchValues, setSearchValue] = useState({
+    const [searchValues, setSearchValues] = useState({
         partner_name: '',
-        date_and_time: '',
+        checked_at: '',
         updated_by: '',
     });
 
-    const dropDowns = (columnName) => {
+    const dropDowns = (columnName, element_id) => {
         return exchange_rates.usdExchangeRateList.map((item) => {
-
-            return (<option key={item.id} value={item[columnName]}>{item[columnName]}</option>)
+            return (<option key={item.id} id={element_id} value={item[columnName]}>{item[columnName]}</option>)
         });
     };
-
-
-
-    let selectedOptionId = 0;
 
     const handleChange = (e) => {
 
         const key = e.target.id;
         const value = e.target.value
 
-        setSearchValue({
+        setSearchValues({
             ...searchValues,
             [key]: value
         });
@@ -36,7 +31,7 @@ export default function SearchExchangeRate({exchange_rates}) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        Inertia.post('/exchange-rate', values);
+        Inertia.get('/exchange-rate', searchValues);
     }
 
     return (
@@ -49,22 +44,22 @@ export default function SearchExchangeRate({exchange_rates}) {
                     <div className="row">
                         <div className="col-md-3">
                             <div className="form-group">
-                                <select className="form-control" id="All partner name">
+                                <select className="form-control" id='partner_name' onChange={handleChange} >
                                     <option value="#" disabled selected>All partner name</option>
-                                    {dropDowns('partnerName')}
+                                    {dropDowns('partnerName' , 'partner_name')}
                                 </select>
                             </div>
                         </div>
                         <div className="col-md-3">
                             <div className="form-group">
-                                <input type="datetime-local" className="form-control"/>
+                                <input type="datetime-local" id="checked_at" onChange={handleChange} className="form-control"/>
                             </div>
                         </div>
                         <div className="col-md-3">
                             <div className="form-group">
-                                <select className="form-control" id="Updated By">
+                                <select className="form-control" id="updated_by" onChange={handleChange}>
                                     <option value="" disabled selected>Updated By</option>
-                                    {dropDowns('updatedBy')}
+                                    {dropDowns('updatedBy' , 'updated_by')}
                                 </select>
                             </div>
                         </div>
@@ -74,7 +69,6 @@ export default function SearchExchangeRate({exchange_rates}) {
                         </div>
                     </div>
             </form>
-
         </>
     )
 }

@@ -22,8 +22,10 @@ class FetchExchangeRateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'page_size' => ['nullable','integer'],
+            'page_no' => ['nullable','integer'],
             'partner_name' => ['max:200','string'],
-            'date_and_time' => ['date_format:Y-m-d H:i:s'],
+            'checked_at' => ['nullable'],
             'updated_by' => ['max:200','string'],
         ];
     }

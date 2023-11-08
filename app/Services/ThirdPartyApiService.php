@@ -24,6 +24,16 @@ class ThirdPartyApiService
     protected string $endpoint;
 
     /**
+     * @var int $page_size
+     */
+    protected int $page_size = 30;
+
+    /**
+     * @var int $page_no
+     */
+    protected int $page_no = 1;
+
+    /**
      * ThirdPartyApiService constructor.
      *
      * @param string $baseUri
@@ -38,9 +48,12 @@ class ThirdPartyApiService
         ]);
     }
 
-    public function fetchData(): array
+    public function fetchData(array $params): array
     {
-        //$url = $this->baseUri . $this->endpoint; // Replace with the actual API endpoint
+         $params['pageNum'] = isset($params['page_no']) ?? $this->page_no;
+         $params['pageSize'] = isset($params['page_size']) ?? $this->page_size;
+         $queryString = http_build_query($params);
+         $url = $this->baseUri . $this->endpoint.'?'. $queryString; // Replace with the actual API endpoint
 
         /**
          * Define the API request and handle the response
@@ -49,6 +62,7 @@ class ThirdPartyApiService
         //$response = $this->client->get($url);
         //return json_decode($response->getBody());
 
+        // For the purpose of this demo, we will return a simple data structure
         return $this->makeSimpleDataPreparation();
 
     }
@@ -56,18 +70,15 @@ class ThirdPartyApiService
     /**
      * @return array
      */
-    public function makeSimpleDataPreparation(): array
+    private function makeSimpleDataPreparation(): array
     {
         $metaData = [
             "pageNum" => 1,
             "totalPage" => 20,
-            "pageSize" => 5,
+            "pageSize" => 10,
         ];
         $simpleData = config('SimpleData.exchange_rate');
 
         return array_merge($metaData, $simpleData);
     }
-
-
-
 }
