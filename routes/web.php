@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovieApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -24,3 +25,5 @@ Route::get('/post/create', [PostController::class, 'create'])->name('posts.creat
 Route::post('/post', [PostController::class, 'store'])->name('post.store');
 
 Route::get('/exchange-rate', [\App\Http\Controllers\ExchangeRateController::class, 'index'])->name('exchange-rate.index');
+
+Route::get('/movies', [MovieApiController::class, 'index'])->name('movies.index');
