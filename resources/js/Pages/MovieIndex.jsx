@@ -10,13 +10,8 @@ export default function MovieIndex({ movies }) {
     const totalPages = 4;
 
     const [limit, setLimit] = useState(10);
-    const [currentPage, setCurrentPage] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
 
-    // const dropDowns = (columnName, element_id) => {
-    //     return limit.map((value) => {
-    //         return (<option key={value} id={element_id} value={value}>{value}</option>)
-    //     });
-    // };
 
     const handleLimitChange = (newLimit) => {
         setLimit(newLimit);
@@ -24,20 +19,25 @@ export default function MovieIndex({ movies }) {
         fetchData(newLimit, 1);
     }
 
-    const handlePageChange = (newPage) => {
-        console.log(newPage);
+    const handlePageChange = (e) => {
+
+        e.preventDefault();
+
+        const newPage = e.target.innerText
         setCurrentPage(newPage);
-        fetchData(limit, newPage);
+        fetchData(limit, newPage)
     };
 
+
     const fetchData = async (limit, page) => {
+
         try {
           const response = await Inertia.get(`/movies?limit=${limit}&page=${page}`);
           // Handle the response data as needed
         } catch (error) {
           console.error('Error fetching data:', error);
         }
-      };
+    };
 
     return (
         <>
@@ -55,22 +55,27 @@ export default function MovieIndex({ movies }) {
                     </tr>
                     </thead>
                     <tbody>
-                        {movies.results.map((item) => (
-                            <tr key={item.id}>
-                                <td>
-                                    {item.id}
-                                </td>
-                                <td>
-                                    {item.titleText.text}
-                                </td>
-                                <td>
-                                   {item.originalTitleText.text}
-                                </td>
-                                <td>
-                                    {item.releaseYear.year}
-                                </td>
-                            </tr>
-                        ))}
+
+                        {
+
+                            movies.results.map((item) => (
+                                <tr key={item.id}>
+                                    <td>
+                                        {item.id}
+                                    </td>
+                                    <td>
+                                        {item.titleText.text}
+                                    </td>
+                                    <td>
+                                    {item.originalTitleText.text}
+                                    </td>
+                                    <td>
+                                        {item.releaseYear.year}
+                                    </td>
+                                </tr>
+                            ))
+
+                        }
                     </tbody>
                 </table>
             </div>
@@ -79,41 +84,34 @@ export default function MovieIndex({ movies }) {
             <div>
                 <div className="row">
                     <div className="col-md-2" style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                        <label> Row :</label>
+                        <label> Size :</label>
                         <div className="form-group">
-                            {/* <select className="form-control" id='limit' onChange={handleLimitChange}>
-                            <option value="#" disabled selected>Size</option>
-                                {dropDowns('limit' , 'limit_no')}
-                            </select> */}
 
                             <select className='form-control' id='limit' value={limit} onChange={(e) => handleLimitChange(e.target.value)}>
-                            <option value="#" disabled selected>select</option>
-
+                                <option value="#" disabled selected>select</option>
                                 <option value={10}>10</option>
                                 <option value={5}>5</option>
                                 <option value={3}>3</option>
                             </select>
+
                         </div>
                     </div>
 
                     <div className="col-md-10">
                         <nav aria-label="Page navigation">
                             <ul className="pagination">
+                            {/* <button onClick={handlePervChange} value={currentPage == 1 ? currentPage : currentPage - 1}>&lt; Prev</button> */}
 
-                            {/* <button onClick={() => handlePageChange(currentPage - 1)}>&lt; Prev</button>
-                            <span>{currentPage}</span>
-                            <button onClick={() => handlePageChange(currentPage + 1)}>Next &gt;</button> */}
+                            {Array.from({ length: totalPages }, (_, i) => (
+                                <li key={i} className={i + 1 == movies.page ? 'active' : ''}>
+                                <Link className='page-link' id="page" onClick={handlePageChange} value={i+1}>
+                                        {i + 1}
+                                </Link>
+                                {/* <Link className="page-link" href={`/movies?page=${i + 1}`}>{i + 1}</Link> */}
+                                </li>
+                            ))}
 
-                                {Array.from({ length: totalPages }, (_, i) => (
-
-                                    <li
-                                        key={i}
-                                        className={i + 1 == movies.page ? 'active' : ''}
-                                    >
-                                        <Link className='page-link' id="page" onClick={(e) => handlePageChange(e.target.value)} value={i+1} >{i + 1}</Link>
-                                        {/* <Link className="page-link" href={`/movies?page=${i + 1}`}>{i + 1}</Link> */}
-                                    </li>
-                                ))}
+                            {/* <button onClick={() => handlePageChange(currentPage + 1)}>Next &gt;</button> */}
                             </ul>
                         </nav>
                     </div>
